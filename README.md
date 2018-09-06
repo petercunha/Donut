@@ -6,11 +6,6 @@ A javascript implementation of the famous "donut.c"
 
 [![Donut.c](https://i.imgur.com/6jnJ8pT.png)](https://donut.surge.sh/)
 
-
-## How the hell does this work?
-
-Good question. It's mostly trigonometry witchcraft and some Z-Buffering. For a deeper explination of how it works, [read this.](https://www.a1k0n.net/2011/07/20/donut-math.html)
-
 ## The Original Code
 
 Here is the code for the original "donut.c" program.
@@ -41,3 +36,7 @@ in(B),t=c*h*g-f*        e;int x=40+30*D*
          .,~~;;;========;;;:~-.
              ..,--------,*/
 ```
+
+## How the hell...?
+
+That's a good question. It's mostly trigonometry witchcraft and some Z-Buffering. For a deeper explination of how it works, [read this article](https://www.a1k0n.net/2011/07/20/donut-math.html) by A1K0N.
