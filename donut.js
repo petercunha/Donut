@@ -1,13 +1,17 @@
 //@ts-check
 "use strict";
+/**@typedef {number|bigint|string} numstr*/
 {
   const
     { sin, cos } = Math,
-    inRange = (x, min = 0, max = 1) => x >= min && x < max,
+    inRange =
+      (/**@type {numstr}*/ x, /**@type {numstr}*/ min, /**@type {numstr}*/ max) =>
+        x >= min && x < max,
     RAF = requestAnimationFrame,
     pretag = document.getElementById("d");
 
   let
+    start,
     A = 1,
     B = 1;
 
