@@ -11,7 +11,7 @@
     pretag = document.getElementById("d");
 
   let
-    start,
+    start = 0,
     A = 1,
     B = 1;
 
@@ -73,5 +73,14 @@
     pretag.innerHTML = b.join("");
   };
 
-  setInterval(asciiframe, 50);
+  /**@param {number} now*/
+  const next_frame = now => {
+    if (now - start > 50) {
+      start = now;
+      asciiframe();
+    }
+    RAF(next_frame);
+  }
+
+  RAF(next_frame);
 };
