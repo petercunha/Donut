@@ -19,12 +19,12 @@ const asciiframe = () => {
     sA = sin(A),
     cB = cos(B),
     sB = sin(B);
-  const m = 80
+  const m = 80;
   for (let k = 0; k < 1760; k++) {
     b[k] = k % m === m - 1 ? "\n" : " ";
     z[k] = 0;
   }
-  const tmp0 = 6.28
+  const tmp0 = 6.28;
   for (let j = 0; j < tmp0; j += 0.07) {
     // j <=> theta
     const
