@@ -1,36 +1,45 @@
-var pretag = document.getElementById("d");
+//@ts-check
+"use strict";
+const {sin, cos} = Math;
 
-var tmr1 = undefined,
-  tmr2 = undefined;
-var A = 1,
+const pretag = document.getElementById("d");
+
+let
+  tmr1,
+  tmr2,
+  A = 1,
   B = 1;
 
-var asciiframe = () => {
-  var b = [];
-  var z = [];
+const asciiframe = () => {
   A += 0.07;
   B += 0.03;
-  var cA = Math.cos(A),
-    sA = Math.sin(A),
-    cB = Math.cos(B),
-    sB = Math.sin(B);
-  for (var k = 0; k < 1760; k++) {
+
+  let
+    b = [],
+    z = [],
+    cA = cos(A),
+    sA = sin(A),
+    cB = cos(B),
+    sB = sin(B);
+  for (let k = 0; k < 1760; k++) {
     b[k] = k % 80 == 79 ? "\n" : " ";
     z[k] = 0;
   }
-  for (var j = 0; j < 6.28; j += 0.07) {
+  for (let j = 0; j < 6.28; j += 0.07) {
     // j <=> theta
-    var ct = Math.cos(j),
-      st = Math.sin(j);
-    for (i = 0; i < 6.28; i += 0.02) {
+    let
+      ct = cos(j),
+      st = sin(j);
+    for (let i = 0; i < 6.28; i += 0.02) {
       // i <=> phi
-      var sp = Math.sin(i),
-        cp = Math.cos(i),
+      let sp = sin(i),
+        cp = cos(i),
         h = ct + 2, // R1 + R2*cos(theta)
         D = 1 / (sp * h * sA + st * cA + 5), // this is 1/z
         t = sp * h * cA - st * sA; // this is a clever factoring of some of the terms in x' and y'
 
-      var x = 0 | (40 + 30 * D * (cp * h * cB - t * sB)),
+      let
+        x = 0 | (40 + 30 * D * (cp * h * cB - t * sB)),
         y = 0 | (12 + 15 * D * (cp * h * sB + t * cB)),
         o = x + 80 * y,
         N =
@@ -49,4 +58,4 @@ var asciiframe = () => {
   pretag.innerHTML = b.join("");
 };
 
-setInterval(asciiframe, 50)
+setInterval(asciiframe, 50);
