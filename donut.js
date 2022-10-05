@@ -1,4 +1,3 @@
-//@ts-check
 "use strict";
 /**@typedef {number|bigint|string} numstr*/
 {
@@ -15,7 +14,7 @@
     A = 1,
     B = 1;
 
-  const asciiframe = () => {
+  const base_frame = () => {
     A += 0.07;
     B += 0.03;
 
@@ -77,10 +76,9 @@
   const next_frame = now => {
     if (now - start > 50) {
       start = now;
-      asciiframe();
+      base_frame();
     }
     RAF(next_frame);
   }
-
   RAF(next_frame);
 };
