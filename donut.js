@@ -1,12 +1,21 @@
 "use strict";
 /**@typedef {number|bigint|string} numstr*/
 {
+  /**
+   * Returns the sine and cosine of a number, as a 2-tuple.
+   * @param {number} x An angle measured in radians.
+   */
+  const sin_cos = x => [Math.sin(x), Math.cos(x)];
+
+  /**
+   * Checks if a value is in the interval [`min`, `max`)
+   * @param {numstr} x
+   * @param {numstr} min (inclusive/closed)
+   * @param {numstr} max (exclusive/open)
+   */
+  const inRange = (x, min, max) => x >= min && x < max;
+
   const
-    { sin, cos } = Math,
-    sin_cos = (/**@type {number}*/ x) => [sin(x), cos(x)],
-    inRange =
-      (/**@type {numstr}*/ x, /**@type {numstr}*/ min, /**@type {numstr}*/ max) =>
-        x >= min && x < max,
     RAF = requestAnimationFrame,
     pretag = document.getElementById("d");
 
@@ -68,8 +77,7 @@
     pretag.innerHTML = b.join("");
   };
 
-  /**@param {number} now*/
-  const next_frame = now => {
+  const next_frame = (/**@type {number}*/ now) => {
     if (now - start > 50) {
       start = now;
       base_frame();
