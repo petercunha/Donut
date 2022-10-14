@@ -3,6 +3,7 @@
 {
   const
     { sin, cos } = Math,
+    sin_cos = (/**@type {number}*/ x) => [sin(x), cos(x)],
     inRange =
       (/**@type {numstr}*/ x, /**@type {numstr}*/ min, /**@type {numstr}*/ max) =>
         x >= min && x < max,
@@ -29,22 +30,17 @@
     }
 
     const
-      cA = cos(A),
-      sA = sin(A),
-      cB = cos(B),
-      sB = sin(B),
+      [sA, cA] = sin_cos(A),
+      [sB, cB] = sin_cos(B),
       tmp0 = 6.28;
 
     for (let j = 0; j < tmp0; j += 0.07) {
       // j <=> theta
-      const
-        ct = cos(j),
-        st = sin(j);
+      const [st, ct] = sin_cos(j);
       for (let i = 0; i < tmp0; i += 0.02) {
         // i <=> phi
         const
-          sp = sin(i),
-          cp = cos(i),
+          [sp, cp] = sin_cos(i),
           h = ct + 2, // R1 + R2*cos(theta)
           sph = sp * h,
           D = 1 / (sph * sA + st * cA + 5), // this is 1/z
