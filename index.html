@@ -1,48 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donut</title>
     <style>
-        ::selection {
-            background: #505050;
-        }
-
-        ::-moz-selection {
-            background: #505050;
-        }
-
-        html,
-        body,
-        .container {
+        body{
             overflow: hidden;
             background-color: black;
             height: 100%;
-        }
-
-        .container {
             color: white;
-            display: -webkit-flexbox;
-            display: -ms-flexbox;
-            display: -webkit-flex;
             display: flex;
-            -webkit-flex-align: center;
-            -ms-flex-align: center;
-            -webkit-align-items: center;
             align-items: center;
             justify-content: center;
         }
     </style>
 </head>
 
-<body>
-    <div class="container">
-        <pre class="center" id="d"></pre>
-    </div>
+<body id="d">
     <script>
-        var pretag = document.getElementById("d");
+        var body = document.getElementById("d");
 
         var tmr1 = undefined,
         tmr2 = undefined;
@@ -90,7 +66,7 @@
             }
             }
         }
-        pretag.innerHTML = b.join("");
+        body.innerHTML = b.join("");
         };
 
         setInterval(asciiframe, 50)
